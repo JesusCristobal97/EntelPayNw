@@ -1,0 +1,29 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="croixan.plugin.networkoperator"
+        version="1.0.0">
+    <name>PluginNetworkOperator</name>
+    <description>cordova plugin get carrier network operator</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,carrier,mcc,mnc,telephonymanager</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/EntelPay.js" name="EntelPay">
+        <clobbers target="window.EntelPay" />
+    </js-module>
+
+    <platform name="android">
+    
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="EntelPay">
+                <param name="android-package" value="plugins.EntelPay" />
+            </feature>
+        </config-file>
+
+         <source-file src="src/android/plugins/EntelPay.java" target-dir="src/plugins/" />
+    </platform>
+
+</plugin> 
