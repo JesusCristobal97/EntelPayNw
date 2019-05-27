@@ -1,7 +1,10 @@
 package plugins;
 
+import android.util.Log;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
+
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,7 +15,8 @@ public class EntelPay extends CordovaPlugin {
 
     @Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        Log.e("Ingreso ",action);
+        Log.e("Ingreso",action);
+
         if(action.equals("encriptar")) {
 
             try{
@@ -27,7 +31,7 @@ public class EntelPay extends CordovaPlugin {
 
             }
             catch(Exception e){
-                callbackContext.success(e.getMessage()));
+                callbackContext.error(e.getMessage()));
                 return false;
             }
             

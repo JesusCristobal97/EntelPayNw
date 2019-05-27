@@ -12,7 +12,7 @@
     </engines>
 
     <js-module src="www/EntelPay.js" name="EntelPay">
-        <clobbers target="window.EntelPay" />
+        <clobbers target="cordova.plugins.EntelPay" />
     </js-module>
 
     <platform name="android">
