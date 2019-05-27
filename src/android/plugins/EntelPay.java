@@ -1,6 +1,7 @@
 package plugins;
 
 import android.util.Log;
+import android.util.Base64;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
