@@ -24,6 +24,7 @@
         </config-file>
 
          <source-file src="src/android/plugins/EntelPay.java" target-dir="src/plugins/" />
+         <source-file src="jar/RSAEncryption.jar" target-dir="libs" />
     </platform>
 
 </plugin> 

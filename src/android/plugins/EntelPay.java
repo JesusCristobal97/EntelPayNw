@@ -9,7 +9,7 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-
+import pe.com.entel.integracion.RSA_Encryption;
 
 public class EntelPay extends CordovaPlugin {
 
@@ -20,10 +20,21 @@ public class EntelPay extends CordovaPlugin {
         if(action.equals("encriptar")) {
 
             try{
-                String dato = args.getString(0)+"one";
-                    
+                    String dato = args.getString(0)+"one";
+
+                    RSA_Encryption rsa = new RSA_Encryption();
+			
+                    String key = rsa.getKeyMobile();
+                    byte[] cipherTextKey = Base64.decode(key, Base64.DEFAULT);
+
+                    String initVector = rsa.getVectorMobile();
+                    byte[] cipherTextVector = Base64.decode(initVector, Base64.DEFAULT);;
+
+                    byte[] enc = rsa.encrypted_(dato,cipherTextKey,cipherTextVector);
+                    String encryptRSA = Base64.encodeToString(enc,Base64.DEFAULT);
+
                     JSONObject result = new JSONObject();
-                    result.put("result", dato);
+                    result.put("result", encryptRSA);
 
                     callbackContext.success(result.toString());
 
