@@ -31,7 +31,7 @@ public class EntelPay extends CordovaPlugin {
 
             }
             catch(Exception e){
-                callbackContext.error(e.getMessage()));
+                callbackContext.error(e.getMessage());
                 return false;
             }
             
